@@ -1,0 +1,504 @@
+
+
+
+EC2 questions
+
+
+1.)What is EC2, Why do we need EC2 service in cloud computing?
+EC2 Stands for elastic cloud computing  
+We need EC2 to launch multiple virtual machines on demand as per our requirement
+It reduces hardware cost so we can develop/deploy application faster.
+-------------------------------------------------------------------------------------------------------------------
+
+2.)Features of Amazon EC2 ?
+-Auto scaling & load balancing
+- on demand service pay-per-use basis
+- Scalability
+- Amazon machine images(AMIs)
+- Security groups& Network ACLs
+- VPC (Virtual private cloud)
+-Variety of instance types
+- Variety of purchasing models
+- Elastic IPs
+-----------------------------------------------------------------------------------------------
+
+
+3.)What is Hypervisor ? and its types ?
+A hypervisor is software that you can use to run multiple virtual machines on a single physical machine. 
+It works as a inter-mediator between guest & host machine also allocate all resources to guest machine
+
+There are 2 types of hypervisor
+Type 1 Hypervisor: Run directly on system hardware
+Type 2 Hypervisor: Run on host OS
+--------------------------------------------------------------------------------------------------------
+
+
+4.)Where we use hypervisor.
+Use cases of hypervisor:
+Desktop virtualization
+Resource optimization 
+Disaster recovery
+Cloud computing
+Testing & development
+Migration& flexibility
+Resource consolidation
+
+------------------------------------------------------------------------------------------------------
+
+5.)Steps to create an EC2 instance.
+Below are steps to crate EC2 Instance:
+-	Open AWS EC2 Service
+-	Click Launch instance
+-	Select OS template  & instance type
+-	Generate key pair & do network configuration 
+-	Storage configuration & launch instance
+--------------------------------------------------------------------------------------------------------
+
+6.)EC2 Instance state?
+State of an EC2 Instance refers current operational status of an instance.
+
+Below are steps of an instance:
+-	Pending: instance is launching 
+-	Running: instance is running
+-	Stopping: instance is in process of being stopped
+-	Stopped: instance is stopped, user are not billing for stopped instance.
+-	Terminating: instance is being terminated
+-	Terminated: instance is terminated.
+
+------------------------------------------------------------------------------------------------------------------
+7.)How many types of EC2 Instance-State codes?
+Pending, running, stopping, stopped, shutting down & terminated there are the 6 types of status codes.
+-----------------------------------------------------------------------------------------------------------------------------------
+
+8.)What is the meaning of server hibernating mode?
+Hibernation is the power-saving mode of server where the current state of a system is saved to non-volatile storage (hard drive) before shutting down.
+When the system is powered back on, it resumes from the saved state, allowing users to continue exactly where they left off.
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+
+9.)What is KMS?
+KMS stands for key management system
+It is service of AWS which used to create/manage cryptographic keys used for data encryption & decryption.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+10.)AWS Amazon EC2 Instance types ?
+Below are instance types of Amazon EC2:
+-	General purpose instance
+-	Compute optimized instance
+-	Memory optimized instance
+-	Storage optimized instance
+-	Accelerated computing instance
+-	High memory instance
+----------------------------------------------------------------------------------------------
+	
+11.)How many types of status checks happen in aws ?
+There are 3 types of instance status check
+Hardware status check( 0/2)
+Software status check (1/2)
+All Ok (2/2)
+
+--------------------------------------------------------------------------------
+12.)When we see the global view option in ec2 service ?
+When we want to see summery of all EC2 resources globally/across all the regions that time we can check global view of EC2
+
+-------------------------------------------------------------------------------------------------------------
+
+13.)When we logged into the cloud account by default why do we always jump into the north Virginia region, why it’s most popular?
+North Virginia is the first region launched by AWS & has been operation since official introduction of AWS service.
+N.Virginia has highest AZs (6 AZs) worldwide.
+It is default region set by AWS hence whenever we login, firstly we jump into the N. Virginia
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+
+14.)What are EBS Volumes and its types ?
+Amazon Elastic Block Store (EBS) is a block-level storage service provided by AWS for use with Amazon EC2 instances.
+Types of EBS volumes
+1SSD (Solid state Drive) volume
+Types of SSD 
+General purpose( gp2 & gp3)
+Provisioned IOPS SSD
+
+2.HDD (Hard disk Drive) volume
+Types of HDD
+Throughput optimized HDD Volume
+Cold HDD Volume 
+
+3.Previous generation volume
+Magnetic volume
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+15.)Purpose of Using EBS volumes?
+EBS volume provide persistence storage of data (when you stop/terminate instance the data present on its associated EBS Volume)
+EBS Volume used as an boot volume
+EBS volume store data for an running application on instance
+Supports high performance workload
+High Redundancy & availability
+Encrypted storage
+These are some advantages of using EBS Volumes
+
+-----------------------------------------------------------------------------------------------------------------
+
+
+16.)How many types of purchasing options do we have in aws ec2 ?
+
+There are 6 types of purchasing option we have in EC2
+On demand instance
+Spot instance
+Reserved instance
+Dedicated host
+Dedicated instance
+Spot instance
+-------------------------------------------------------------------------------------------------------------------------
+
+17.)What is NIC & it’s types?
+NIC Stands for Network Interface Card which allows a computer to connect to network through Ethernet or WiFi
+Types:       wireless NIC
+	Ethernet NIC
+	Bluetooth NIC
+ 	Token Ring NIC
+	Wired NIC
+
+
+------------------------------------------------------------------------------------------------------------------------
+18.)	What is elastic IP ? & WHY were we used ?
+	An Elastic IP is static IPv4 address design for dynamic cloud computing environment , 
+	it is static Public IP address associated with EC2 instance.
+	Use cases: To Avoid public IP change 
+
+
+---------------------------------------------------------------------------------------------------------------------------
+
+19.)What is the snapshot of why we use it ?
+Snapshots are a fundamental feature in AWS use for backup, recovery, and data migration purposes.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+
+20.)How can we save money in snapshot costing, if an automated snapshot has been created?
+Below are some tricks to save snapshot cost:
+Snapshot lifecycle management
+Snapshot sharing
+Use incremental backup
+Snapshot deleting policy
+Evaluate storage classes
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+21.)What is the lifecycle manager in snapshot ?
+Lifecycle management policy manages the lifecycle of snapshot which provide some key features like, Automate Snapshot creation/delete, define retention period,
+ cross-region replication, assign resource level permissions, monitoring & auditing.
+Using these features user can manage lifecycle by enabling features/ assign rules which results cost saving.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+22.)How does the Amazon lifecycle manager work?
+
+AWS Lifecycle management involves actions and processes related to the creation, modification, and termination of resources. 
+Lifecycle management in AWS involves the whole journey of creating, configuring, operating, scaling, maintaining, and 
+eventually stopping or removing resources based on your needs.
+Below services /tools which use for lifecycle management.
+AWS Systems Manager
+Amazon S3 Lifecycle policies
+AWS Cloud watch events
+Amazon EC2 Auto Scaling Lifecycle 
+Resource Tagging
+AWS Cloud Formation
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+23.)Difference between Security Group & NACL ?
+
+Security Group:
+
+Acts as a firewall & associated with instance
+Control inbound & outbound traffic at instance level
+You can secure VPC Instance using sg Only
+SG Supports allow rule only
+Stateful( return traffic auto allow without any rule)
+Apply only to the instance that will be associate with 
+Instance associated with SG Can not communicate each other unless you add rules allowing it
+It is associated with network interface.
+
+NACL:
+
+Acts as a firewall & associate with subnets
+Control inbound & outbound traffic at subnet level
+It Provide additional layer of security
+It support both allow & deny rule
+Stateless (return traffic must be explicility allow by rule)
+Apply to all instances that subnet is associate with
+Each instance in VPC must be associated with a network ACL of now is associated default NACL is selected.
+You can associated network ACL with multiple subnet however a subnet a subnet can be associated with only one network ACL at a time
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+24.)What are NACL & Its types?
+NACL Stands for Network Access Control List.
+NACL acts as a firewall & associate with subnets.
+ NACL is a security layer for your VPC,  that acts as a firewall for controlling traffic in and out of one or more subnets.
+
+Types of NACL:
+1.	Inbound NACL: Inbound NACL Control incoming traffic to a subnet 
+2.	Outbound NACL: Outbound NACL Control outgoing  traffic from a subnet
+------------------------------------------------------------------------------------------------------------------------------
+
+
+25.)How many IP Addresses can we attach to the instances?
+Instance has 2 IP Addresses
+1.Public IP / Elastic IP
+2.Private IP 
+
+----------------------------------------------------------------------------------------
+
+26.)How many types of volume states do we have?
+Below 5 volume state are present 
+Creating
+Available
+In-use
+Deleting
+Error
+
+----------------------------------------------------------------------------------------
+
+27.)What is a key pair, and its types?
+A key pair is a set of cryptographic keys used to securely connect to and authenticate with instances running on Amazon EC2. 
+
+It consist public key and a private key, is a set of security credentials that you use to prove your identity when connecting to an EC2 instance. 
+
+Types of key pair:
+EC2 Instance key pair ( for connecting instance)
+AWS IAM Key pair(for accessing CLI)
+
+-------------------------------------------------------------------------------------------------
+28.)What is load balancer and its types?
+
+A load balancer is a component that distributes incoming network traffic across multiple servers to ensure no single server is overwhelmed with too much traffic
+This increases the availability of your application
+You add one or more listeners to your load balancer.
+
+
+types:
+
+1.Application Load Balancer
+2.Classic load balancer
+3.Network Load Balancer
+4.Gateway load balancer
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+29.)How does the load balancer work in the backend? Can you explain it?
+
+Suppose multiple users can hit same application there is traffic increases & your server may get down/crash to avoid this situation load balancer use.
+Load balancer distribute the traffic to the multiple servers ( all servers  should be associate with load balancer)
+In load balancing all requests goes to load balancer first & then load balancer decide to which server that task should forward
+Load balancer work on round robin algorithm its like a first come first server
+ ( ie when 1st  request comes to load balancer forward to first server ,2nd request to second server , 3rd request to third server in this format load balancer works )
+We can also set rules for load balancer with autos scaling.
+Use cloud watch /sns for monitoring & notification purpose.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+30.)Features of Load Balancers ?
+
+Health Checking
+scalability
+high availability
+distirbuted system
+-------------------------------------------------------------------------------------------------------------------------------
+31.)What is ASG ? & Its types ?
+Auto scaling group is  a collection of EC2 instances that are treated as a logical grouping
+ for the purposes of automatic scaling and management.
+Types of ASG: 
+1.Simple scaling
+2.Step scaling
+3.Target tracking scaling
+4.Scheduled scaling
+
+------------------------------------------------------------------------------------------------------------------------------
+
+32.)What is a Health Check ?
+A health check refers to the process of periodically assessing the health and status of instances or resources to determine 
+if they are capable of handling incoming traffic.
+Basically health check is the proactive monitoring activity for an server to enhance services/stability of application.
+
+33.)What is the threshold?
+In auto scaling & load balancer a threshold is a predefined limit or condition that, when met, 
+triggers a specific action or behavior. 
+We can set predefined rules while create ASG.
+Thresholds are used to determine when to scale instances up or down, 
+perform health checks, or initiate other actions Based on predefined conditions.
+These thresholds help automate the management of resources to ensure optimal performance, availability, and efficiency.
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+
+
+34.)What is the group of LB ?
+Group refers a collection of servers or instances that are part of a load balancing setup.
+The load balancer distributes incoming traffic across the servers in the group to
+ ensure even distribution and optimal utilization of resources & improve fault tolerance.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+35.)Why do we prefer ALB over CLB ?
+ALB work on application layer (Layer 7) of the OSI model, which allows more advanced 
+and flexible routing decisions based on content, like URL path, host headers, or query parameters. 
+This makes ALBs well-suited for modern web applications with diverse routing requirements.
+ALBs support content-based routing, allowing you to route traffic to different backend services based on the content of the request. 
+ALBs support Web Socket protocols, making them suitable for real-time and interactive applications that require bidirectional communication.
+ALBs support host-based routing, allowing you to route traffic based on the host header in the HTTP request.
+ This is beneficial for hosting multiple websites or applications on the same set of backend instances.
+ ALBs often have a simplified pricing model compared to Classic Load Balancers. With ALBs, you pay only for the number of Load Balancer Capacity Units (LCU) used,
+ which is based on factors like new connections per second, active connections, and data processed.
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+36.)Difference between Web server & Application server ?
+
+Web server:
+
+Web servers deliver responses to simple requests.
+Web servers primarily use HTTP protocol. They also support FTP and SMTP.
+Web servers deliver static content, like HTML pages, images, videos, and files. 
+Does not typically use multithreading
+
+
+Appilcation server:
+
+An application server delivers more complex content from databases, services, and enterprise systems.
+Application servers support many protocols. Like HTTP, FTP,SMTP, RMI, RPC.
+Application servers deliver dynamic content, like real-time updates, personalized information, and customer support.
+Uses multithreading to process requests concurrently.
+( Multithreading: severs create & run multiple threads/paths simultaneously & each handle different task )
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+37.)What is the target group?
+A target group is a logical grouping of targets (instance/IP ) that the load balancer directs traffic to. 
+In simple, A target group is like a virtual bucket where you put instances that should receive traffic from the load balancer.
+It helps the load balancer know where to send incoming requests by distributing them to the targets within the target group.
+We can create different target groups for different parts of an application.
+
+------------------------------------------------------------------------------------------------------
+
+38.)What is the desired capacity in ASG?
+Desired capacity in ASG represents the desired number of instances that should be running to handle the load and meet the defined scaling policies. 
+This is the target number of instances you ASG Have to maintain.
+
+--------------------------------------------------------------------------------------------------------------------------
+
+
+39.)How many types of the Scaling option?
+There are 2 types of scaling 
+1.Manual scaling : It allows user to adjust capacity of scaling group manually.
+2.Dynamic scaling: Dynamic scaling allows the Auto Scaling group to automatically adjust its capacity based on predefined scaling policies.
+Dynamic scaling further divided into 3 types 
+1.Target tracking scaling:  This automatically scale up/down based on response to changes in a specified Cloud Watch metric, such as average CPU utilization or network traffic.
+
+2.Simple scaling : It increase & decrease the current capacity of the group IN  single scaling adjustment
+
+3.Step scaling :It increase & decrease the current capacity of the group multiple scaling adjustment
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+40.)Scaling plans?
+Below are the scaling plans do we have in ASG:
+1.Target tracking scaling:  This automatically scale up/down based on response to changes in a specified Cloud Watch metric, such as average CPU utilization or network traffic.
+
+2.Simple scaling : It increase & decrease the current capacity of the group IN  single scaling adjustment
+
+3.Step scaling :It increase & decrease the current capacity of the group multiple scaling adjustment
+
+4.Predictive scaling: Predictive scaling uses machine learning to predict capacity requirement based on historical data from cloud watch.
+
+5.Schedule scaling: Schedule scaling helps you to setup your own scaling schedule according to predictable load changes
+Ex at every Friday night 9:00 pm, add 2 instances
+
+
+-------------------------------------------------------------------------------------------------------------------
+
+
+41.) Schedule scaling
+Schedule scaling helps you to setup your own scaling schedule according to predictable load changes
+Ex. at every Friday night 9:00 pm, add 2 instances
+
+------------------------------------------------------------------------------------------------------------------
+
+42.)Types Auto scaling
+Below are the type of auto scaling.
+Vertical Scaling (Up scaling):
+Vertical scaling involves increasing the capacity of a single server by adding more resources (CPU, RAM, storage) to the existing server.
+Suitable for applications that can benefit from increased resources on a single machine.
+
+ Horizontal Scaling (Out scaling):
+Horizontal scaling involves adding more machines or instances to your computing environment to distribute the load.
+Ideal for web applications, micro services architectures, and other distributed systems.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+43.)Difference between AMI & Snapshot?
+
+AMI:
+
+AMIs are associated with EC2 instances, which are virtual servers
+AMIs are used to store the entire configuration of an EC2 instance, making it easy to launch new instances with the same setup.
+AMIs stores the complete configuration and state of an EC2 instance, including the data.
+AMIs can be created for both EBS-backed and non-EBS-backed instances.
+
+
+Snapshot:
+Snapshots are associated with EBS volumes, which are used to store data.
+Snapshots are primarily used for data backup, disaster recovery, and data migration.
+Snapshots are used to store the data on EBS volumes.
+Snapshots can be taken of EBS-backed instances.
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+44.Diffferentiate S3,EBS,EFS
+
+S3
+
+S3 is object storage with unlimited storage
+it has unlimited scalability
+it has web interface
+
+usecase:
+Media, entertainment, backup & archive, web service & contain management, static web hosting
+
+
+EBS:
+ It is block storage with limited storage
+it increase decrease scalabilty
+It has file System interface
+
+usecase:Boot volume, transactional & NoSQL Database, data warehousing 
+
+EFS:
+
+It has file storage with unlimited storage capacity
+it has unlimited scalabilty
+it has web and file system interface
+
+usecase:
+Media, entertainment, big data analytics, backup & archive, web saving & contain management
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
