@@ -1,0 +1,167 @@
+AWS VPC:-
+
+
+1.) What is VPC ?
+
+> VPC stands for Virtual Private Network. 
+    Vpc is regional specific service of aws
+    resource of Vpc
+   1.Subnets
+   2.Internet Gateway:
+   3.Route Tables: 
+   4Network Access Control Lists (ACLs): 
+   5.Security Groups: 
+   6.VPC Peering: 
+   7.Private IP Addresses and Elastic IPs: 
+   8.NAT Devices
+   9.Endpoints
+
+
+2.)What are the Subnets when working with VPC ?
+
+
+>Vpc is divided into network in different az called as subnet.
+
+
+
+3.)What is NAT Device ?
+
+> NAT devices in Amazon Web Services (AWS) are used to enable instances in a private subnet of a Virtual Private Cloud (VPC) to connect to the internet
+   NAT stands for Network Address Translation
+
+
+
+
+4.)What is the difference between stateful & stateless filtering ?
+
+Statefull : It is based on network traffic 
+	It monitors the full state of active connections and can remember past traffic. 
+	It can allow or block traffic based on the state of the connection.
+
+stateless filtering: It is also based on network  traffic 
+	            it check the traffic in terms on packets
+	           It is based on security group which allow incoming and outgoing traffic
+	           
+
+
+
+5.)What are the advantages of using default VPC ?
+
+Default vpc is aws customized vpc. default vpc is directly made by aws so all ip and subnet and other resource are configured by default so it is easy to use and timing consuming to make new vpc.
+
+
+6.)What is the internet gateway in VPC ?
+
+An internet gateway is a VPC component that allows communication between instances in your VPC and the internet. It enables you to connect your AWS infrastructure to the internet in a secure and scalable way.
+
+
+
+7.)What is Network ACL in VPC ?
+
+Networl ACL acts as firewall in vpc and allows incoing and outgoing traffic 
+
+
+
+8.)What is the Security Group in VPC ?
+
+security groups provides security to instance for incoimg and outgoing traffic . We have whitelist the ports in sg to allow connection on the instance using vpc.
+
+
+
+9.)What is an Elastic IP Address in VPC, and why do we need to use, realtime example ?
+
+> Elastic IP Address keeps the IP static . When you stop the server and start it again the IP will chnage if Elastic Ip is not configured.
+
+real time ex :
+
+if you have hosted the application on the server, the customer will interact with the aplication ip to start the appication, If you stop and start the server , the ip will chnge automically if you have not cofigured Elastic ip.
+when the customer hits on old server ip they will get an errror and aplication will not run . so we have to configure elastic ip.
+
+
+
+10.)Can we attach one Production Elastic IP to the new Prod server ?
+
+
+yes
+
+
+11.)How does ELB Affect a VPC ?
+
+> It will distribute the incoming traffic to the multiple servers using load balancers.
+load balancer helps to reduce cpu optimization as it disturbes traffic on diiferent servers.
+Round robin algorithm – It will disturbute the traffic into circular order with static load balancing any sequences
+
+as the traffic is disturbuted , the load will less on the network , customer interaction will be more.
+
+
+
+
+12.)What are the limitations of VPC’s, Gateway and subnets ?
+
+Region-Specific: A VPC is region-specific and cannot span multiple regions. However, you can connect VPCs in different regions using VPC peering.
+
+Default VPC Limits: Each AWS account comes with a default VPC in each region. If you need additional VPCs, you can create them, but there are limits on the number of VPCs per region per account, which can be increased upon request.
+
+Size and CIDR Block: When you create a VPC, you must specify a range of IPv4 addresses for the VPC in the form of a Classless Inter-Domain Routing (CIDR) block. This range cannot be changed after the VPC has been created, and there are limits on the size of the CIDR block.
+
+Limited IPv6 Support: While AWS supports IPv6 in VPCs, not all AWS services support IPv6, and there are some limitations in IPv6 features compared to IPv4.
+
+
+
+Gateway Limitations:
+Internet Gateway (IGW) Per VPC: You can only have one Internet Gateway attached to a VPC at a time.
+
+NAT Gateway Limitations: NAT Gateways are tied to a specific Availability Zone and have throughput limits. There are also limits on the number of NAT Gateways you can have per Availability Zone.
+
+Virtual Private Gateway (VGW) and Direct Connect: While you can attach multiple Virtual Private Gateways to a VPC, there are limitations on the number of routes and BGP advertisements in VPN connections.
+
+
+
+
+Subnet Limitations:
+Subnet Size: Subnets cannot span Availability Zones and must reside within a single Availability Zone. The minimum size of a subnet is a /28 (or 16 IP addresses) for IPv4.
+
+IP Address Reservation: AWS reserves the first four IP addresses and the last IP address in each subnet's CIDR block for AWS use (network address, VPC router, DNS, future use, and broadcast address).
+
+Number of Subnets: There are limits on the number of subnets you can create per VPC, which can be increased upon request.
+
+Route Table Limits: Each subnet must be associated with a route table, and there are limits on the number of route tables you can have per VPC and the number of routes per route table.
+
+What is a Public IP Address and why do we use it ?
+
+
+
+13.)Explain Bastion Host Concept ?
+The main purpose of a Bastion Host is to provide a secure way to access internal resources from an external network,
+
+A Bastion Host can be set up in a public subnet within the same VPC, with strict security controls and limited access.
+
+
+
+When do we need to create a new customized VPC ?
+
+> if you want own subnet and your ip to be configured. The customized vpc provides security to your own server.The Security groups are also customized so that the connection and protocols needed will be customized as per your requirements.
+
+
+
+14.)What is Peering ? Why do we need to peer at two VPC’s ?
+
+> peering is a networking connection between two vpc that enbles routing using vpcs private ip address as if they were in same networking. Peering includes aws key to allow the connection of private network in public network.
+
+
+15.)What is VPN, Where do we use VPN Tunnel ?
+
+> VPN stand for virtual Private Network.
+   types 
+
+ 1 .client vpn
+
+client vpn is a fully managed ,elastic vpn service that automatically scales up or scales down based on user demand
+
+
+  2. site to site vpn
+
+site to site vpn is the network which allows access to the internet . The site to site network vpn is used to access ip from different network
+
+eg. PUBG
+

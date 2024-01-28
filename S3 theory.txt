@@ -1,0 +1,250 @@
+
+
+1.)Dfferentiate block storage and object storage
+
+Storage Types:- Block Storage & Object Storage (53)
+
+Block storage:
+
+1 Block storage is a suitable for transmitting Data, read/write speed load and structured the database.
+2 Block storage divides the data and stored into evenly sized blocks and they called as a Data Chunks.
+3. We are going to store demo.txt file in instance, this file will spilt into the evenly sized blocked before stored.
+4. This block storage would not be contain the metadata.
+5. Block storage only keep Address, inode number where the our data blocks are stored.
+6. Example SSD, HDD
+
+
+Object storage:
+1 In object storage it will store the file and it will not divide the blocks.
+2 Object file is just like data itself, it's metadata has object global uniqueid
+3. Object storage can not be mounted as a drive..
+4. Example: DropBox, Drive, S3
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.)Difference between Static Website & Dynamic Website?
+
+a.Static Website     
+                                                                                        
+Content of Web pages cannot be change at runtime
+No interaction with database possible.
+It is faster to load as compared to dynamic website
+Cheaper Development costs.
+No feature of Content Management.
+HTML, CSS, JavaScript is used for developing the website.
+Same content is delivered every time the page is loaded.
+
+
+b. Dynamic Website
+Content of Web pages can be changed.
+Interaction with database is possible
+It is slower than static website.
+More Development costs.
+Feature of Content Management System.
+Server side languages such as PHP, Node.js are used.
+Content may change every time the page is loaded.
+
+------------------------------------------------------------------------------------------------------
+
+
+
+3.)What are the naming rules?
+Below are some naming rules of bucket.
+
+	Bucket should be globally unique & by default it is private
+	Only lower characters can be useable
+	Bucket name can not be change after creation
+	Min 3 & max 63 character can be use
+	Bucket name should not be Ip address/domain name.
+	We can use . and _ in middle of character
+
+-------------------------------------------------------------------------------------------------------------------------
+4.)What is the measure resource of S3 Bucket?
+
+	Objects
+	 access control list (ACL)
+	bucket policies
+	 replication configurations 
+	bucket versioning 
+	lifecycle policies 
+	cross origin resource sharing 
+	event notifications
+	storage classes 
+	static website hosting
+
+----------------------------------------------------------------------------------------------------------------------------
+
+5.)Why do we need to host static website instead of dynamic website?
+
+only Static website is hosted in S3 Bucket.
+The reason we only host static website is that the database is not attached to static website. Also the cost is low for static website.
+we does not require all time chnges in static website.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+6.)What is versioning & why we need versioning?
+
+a.Handle the multiple version of an objects in the same bucket.
+   b. We can restrive & restore the every version of every object stored in our amazon s3 bucket.
+  c. We can use and access it while verion failure.
+  d. We can store multiple file with same name and different content.
+  e. Example python.py→ abc (august), python.py (october) 
+  f.That's why we can store one file with multiple versions
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+7.)What are the objects & types of objects we are uploading in S3 bucket?
+Objects are the any type of data user stored in s3 bucket,
+Ex. PDF file, text doc., images, videos etc.
+Each object has its own unique object ID provided by AWS 
+We can store max 5TB size of data/object in single s3 bucket
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+8.)Why is MFA Delete important in S3 Bucket object level?
+Below are some key features of MFA Delete: 
+Protect to changing bucket versioning state
+Avoid permanently deleting an object or its version
+to set object level granular permission & data protection
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+9.)What is S3 multipart uploading?
+
+Multipart upload allows you to upload a single object as a set of parts. Each part is a contiguous portion of the object's data. You can upload these object parts independently and in any order. 
+If transmission of any part fails, you can retransmit that part without affecting other parts.
+
+Ex. Suppose we have 100 mb file so we can also upload 10 files of 10 mb parallel for faster uploading.
+Once all sets uploading done it will stored in S3 Bucket as a single object.
+We can apply it for more that 100 mb file & it is must for more than 5GB file
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+10.)What are the storage classes in Amazon S3?
+Below are the storage classes of S3:
+S3 Standard AI
+S3 Intelligent-Tiring
+S3 One Zone-Infrequent Access (Z-IA)
+S3 Glacier
+S3 Glacier Deep Archive
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+11.)What is ACL?
+ACL stands for Access Control List. 
+it defines which AWS accounts/user or groups are granted access and the type of access.
+Basically ACL is a set of rules or policies that define who can access objects and what level of access they have within a specific S3 bucket
+We can enable ACL on bucket level as well as object level. 
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+12.)Why do we need ACL?
+ACLs are used to manage permissions for individual objects and buckets, allowing or denying access to AWS Identity and Access Management (IAM) users, groups, or other AWS accounts
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+13.)What is lifecycle policy & why do we need to use lifecycle rule?
+
+A Lifecycle policy allows you to automatically manage and control the lifecycle of your objects stored in S3 buckets.
+With lifecycle policies, you can define rules to transition objects between different storage classes, delete older versions of objects, and automate the expiration of objects.
+Lifecycle policy helps you optimize storage costs, improve performance, and ensure compliance with data retention policies.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+14.)How can we make our bucket public?
+By enabling block public access option we can make our bucket public
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+15.)How can we give public access to our bucket?
+Enable ACL for bucket 
+Edit ACL,  give list & read permission to everyone/public for bucket
+
+---------------------------------------------------------------------------------------------------------------------------
+
+16.)AWS pricing factor of the S3 Service?
+Storage Pricing: The primary factor is the amount of data you store in your S3 buckets & storage prising is different for each storage class. 
+
+Request and Retrieval Costs: Amazon S3 charges for each request made to your bucket, such as GET, PUT, COPY, LIST, etc & for data retrieval as well
+
+
+Data Transfer Costs:Data transfer costs apply when data is transferred into or out of Amazon S3. 
+
+Data Transfer Acceleration (Transfer Acceleration):Transfer Acceleration allows you to accelerate your uploads to S3 using the CloudFront content delivery network. 
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+17.)How can we make our object public?
+Enable Block Public Access to make object public
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+18.)How can we configure the static website logs in S3?
+We have to enable server access logging function to configure static website logs in s3. 
+
+ Server access logging capture detail information about requests made to bucket which help to analysis access patter.
+
+We can target/ create another bucket to store all logs.
+
+---------------------------------------------------------------------------------------------------------------
+
+19.)What is CORS?
+CORS stands for Cross-Origin Resource Sharing. 
+It is a security feature implemented by web browsers to control how web pages in one domain can request and interact with resources hosted on another domain.
+CORS prevent unauthorized cross-origin requests that could lead to security vulnerabilities.
+Mostly it is use in web development to enable secure cross origin communication.
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+20.)What is S3 Inventory?
+S3 Inventory provides scheduled reports about objects and their metadata within an S3 bucket. 
+With S3 Inventory, you can generate reports to help you better understand, manage, and audit your S3 object metadata. 
+These reports can be useful for compliance, data governance, and data lifecycle management.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+21.)What does it mean by requestor pay?
+Requester Pays allows the bucket owner to configure a bucket so that the requester (the entity making the request for data) bears the cost of the data transfer and
+ request costs associated with accessing objects in the bucket.
+ In a typical S3 bucket, the bucket owner pays for all the costs associated with data transfer and requests. 
+With Requester Pays, the requester is responsible for these costs.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+22.)What is secondary word to transfer acceleration? Why do we need to use this transfer acceleration?
+Secondary word to transfer acceleration is Amazon S3 Transfer Acceleration.
+Amazon S3 Transfer Acceleration is a bucket-level feature that enables fast, easy, and secure transfers of files over long distances with the help of cloud front CDN.
+Need of transfer acceleration:
+It increase data transfer speed & give consistence performance.
+Reduce latency issues.
+Provide secure data transfer.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+

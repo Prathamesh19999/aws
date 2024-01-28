@@ -1,0 +1,87 @@
+AWS SNS:-
+
+
+1.)What is SNS ?
+
+Amazon Simple Notification sezurce is a web Service that makes it easy to set up, operate and send notifications from the cloud.
+
+SNS is a fast, flexible, fully managed PUSH notification service
+
+ It is a web service that deliver or sending of messages to subscribing endpoints of clients.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.)Why do we use SNS ?
+
+It allows notification to the user that uses aws services. The main usage of sns is to notify users about the services they are using.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+3.)What is an Amazon SNS function, and how we can configure it.
+
+Subscription is necessary in sns function . It is configure as following steps:
+
+step 1: go to sns and create sns 
+step2: the publisher send out the required notification that are to be delivered to subscribers
+
+step 3: allow service to configure in sns(s3,ec2 etc) 
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+4.)Difference between Amazon SNS & Amazon SQS.
+
+Sns supports A2A and A2p communication while sqs supports A2A communication
+SNS is used for real time application while SQS is more suited for msg processing use cases.
+SNS does not persist messages while SQS persists message from 1 min to 14 days.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+5.)What are the different delivery formats and transports in AWS SNS ?
+
+> Notification is send over HTTP,HTTPS, Email-Json and SQS transport.
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+6.)What is the difference between SNS FIFO & Standard while creating the SNS topic.
+
+>Standard topics:
+	 Standard topics support a nearly unlimited number of messages per second.
+	Each standard one could handle up to 12.5M subscriptions.
+	Protocol use Emails, SQS, HTTP, Lambda SMS, Mobile application end points.
+FIFO Topics:
+	 FIFO topics are limited to 300 transactions per second.
+	Each FIFO topic supports up to 100 subscriptions.
+	Protocol use SQS.
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+7.)On which services are configured with the AWS SNS ?
+
+> Ec2 ,S3,Cloudfront, cloudwatch, cloudtrail, Lambda ,RDS, SQS 
+--------------------------------------------------------------------------------------------------------------------------------
+
+8.)What is 10DLC in AWS ?
+
+> 10 DLC stands for 10 digit Long code.
+    It is inteded specifically for sending Application to person SMS in U.S.A only
+    If you do not send text messages to recipeints in USA then 10DLC is not applicable.
+-----------------------------------------------------------------------------------------------------------------------------------
+
+
+9.)What are FIFO topics on SNS?
+It is a type of SNS topic that provides strict message ordering and ensures that messages are processed exactly once and in the order in which they are sent. 
+It is used in scenarios where we need to maintain order of msgs & ensuring no duplicate msgs are created. 
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+10.)What is SNS Mobile Push?
+   SNS Mobile Push is function of an SNS that enables the delivery of push notifications to mobile devices (Ex messages, updates, or reminders).
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+11).On which delivery method do we use and configure the subscription?
+SNS Configure subscription depends on the type of endpoint or resource you want to receive the notifications
+       Commonly we use Emails /SMS endpoints to configure SNS notifications.
