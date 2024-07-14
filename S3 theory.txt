@@ -2,7 +2,7 @@
 
 1.)Dfferentiate block storage and object storage
 
-Storage Types:- Block Storage & Object Storage (53)
+Storage Types:- Block Storage & Object Storage 
 
 Block storage:
 
